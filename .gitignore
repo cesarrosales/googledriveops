@@ -112,3 +112,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.DS_Store
+src/gdrive_secrets.json
+src/tmp/access_token.json
