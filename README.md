@@ -22,6 +22,7 @@ Add file `drive_secrets.sjon` in `src` directory with your user's OAuth secrets.
 
 - `simplereport.py`: Generates a report (`src/simple_report.json`) that shows number of files and folders for source folder.
 - `recursivereport.py`: Generates a report (`src/recursive_report.json`) that recursively calculates each nested folder's file count.
+- `copycontent.py`: Copies content from a source folder to a destination folder.
 
 #### Code Organization
 

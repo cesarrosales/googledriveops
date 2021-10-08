@@ -2,6 +2,7 @@
     "printOutput": true,
     "gdrive": {
         "scopes": ["https://www.googleapis.com/auth/drive"],
-        "sourcefolder": "1cpo-7jgKSMdde-QrEJGkGxN1QvYdzP9V"
+        "sourcefolder": "1cpo-7jgKSMdde-QrEJGkGxN1QvYdzP9V",
+        "destinationFolder": "1y9I2CYLZ4L5HdZJliw5atJxIFyKDyH2e"
     }
 }

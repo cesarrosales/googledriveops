@@ -100,3 +100,51 @@ def get_files_by_query(s):
 
     return files
 
+def copyfolder(source, destination):
+    copy_files_recursively(source, destination)
+
+def copy_files_recursively(source, destination):
+    script_log_info(f'copying the folder structure from source directory {source}')
+    
+    files = get_files_by_query(f"parents = '{source}'")
+
+    folderSet = set()
+    newFolders = {}
+    
+    for f in files:
+        fileId = f['id']
+        fileName = f['name']
+        gDriveObjectCache[fileId] = f
+        if f['mimeType'] == MIME_TYPE_FOLDER:
+            newFolder = createfolder(fileName, destination)
+            newFolders[fileName] = newFolder
+            folderSet.add(fileId)
+        else:
+            copyFile(fileId, fileName, destination)
+
+    if len(folderSet) > 0:
+        for folderId in folderSet:
+            folderName = gDriveObjectCache[folderId]['name']
+            destination = newFolders[folderName]['id']
+            copy_files_recursively(folderId, destination)
+
+def createfolder(name, parent):
+    metadata = {
+        'name': name,
+        'mimeType': MIME_TYPE_FOLDER,
+        'parents': [parent]
+    }
+    
+    return service.files().create(
+        body=metadata
+    ).execute()
+
+def copyFile(source, name, destination):
+    metadata = {
+        'name': 'test',
+        'parents': [destination]
+    }
+    service.files().copy(
+        fileId=source,
+        body=metadata
+    ).execute()

@@ -9,5 +9,8 @@ def c_gdrive_scopes():
 def c_source_folder():
     return config['gdrive']['sourcefolder']
 
+def c_destination_folder():
+    return config['gdrive']['destinationFolder']
+
 def c_print_output():
     return config['printOutput']
