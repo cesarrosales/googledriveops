@@ -1,6 +1,7 @@
 import logging
 import uuid
 from datetime import datetime
+from config import c_print_output
 
 transaction = uuid.uuid4()
 
@@ -11,21 +12,25 @@ def configure():
 def script_log_info(s):
     log = f'[{transaction}][{datetime.now()}]: {s}'
     logging.info(log)
-    print(log)
+    script_print(log)
 
 def script_log_warning(s):
     log = f'[{transaction}][{datetime.now()}]: {s}'
     logging.warning(log)
-    print(log)
+    script_print(log)
 
 def script_log_error(s):
     log = f'[{transaction}][{datetime.now()}]: {s}'
     logging.error(log)
-    print(log)
+    script_print(log)
 
 def script_log_debug(s):
     log = f'[{transaction}][{datetime.now()}]: {s}'
     logging.debug(log)
-    print(log)
+    script_print(log)
+
+def script_print(s):
+    if c_print_output():
+        print(s)
 
 configure()

@@ -115,3 +115,6 @@ dmypy.json
 .DS_Store
 src/gdrive_secrets.json
 src/tmp/access_token.json
+src/recursive_report.json
+src/simple_report.json
+src/config.json
