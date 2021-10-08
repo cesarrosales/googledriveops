@@ -16,7 +16,7 @@ pip install oauth2client
 ```
 Secrets:
 
-Add file `gdrive_secrets.sjon` in `src` directory with your user's OAuth secrets.
+Add file `gdrive_secrets.json` in `src` directory with your user's OAuth secrets.
 
 #### Scripts
 
