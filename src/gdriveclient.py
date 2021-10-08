@@ -40,6 +40,7 @@ def get_directory_and_file_totals(dir):
     script_log_info(f'found {len(folderSet)} folders and {len(fileSet)} files')
     
     return {
+        'totalObjects': (len(folderSet) + len(fileSet)),
         'folders': len(folderSet),
         'files': len(fileSet)
     }
